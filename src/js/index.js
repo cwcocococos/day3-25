@@ -3,11 +3,11 @@ $(function(){
 	$(window).scroll(function(){
 		var sTop = $(document).scrollTop();
 		if(sTop > 100){
-			$('#topNav').show(1000);
-			$('#topNav').css("position","fixed");
-			$('#topNav').css("top",0)
+			$('#topNav').show(1000).css({"position":"fixed","top":"0"});
+			$('#leftNav').show(1000).css({"position":"fixed","top":"50%"});
 		}else{
 			$('#topNav').css("display","none");
+			$('#leftNav').css("display","none");
 		}
 	})
 	

@@ -1,12 +1,11 @@
 //导入所需插件 
 const gulp = require('gulp'),
 	  uglify = require('gulp-uglify'),
-	  rename = require('gulp-rename'),
-	  concat = require('gulp-concat'),
 	  img = require('gulp-imagemin'),
 	  cssnano = require('gulp-cssnano'),
 	  html = require('gulp-minify-html'),
 	  sass = require('gulp-sass');
+	  
 	  
 //任务1：编译sass压缩css
 gulp.task('sass',function(){
@@ -17,7 +16,7 @@ gulp.task('sass',function(){
 });
 //任务2：处理js任务
 gulp.task('js',function(){
-	gulp.src('src/js/*.js')
+	gulp.src('src/js/*')
 	.pipe(uglify())
 	.pipe(gulp.dest('dist/js'));
 })
