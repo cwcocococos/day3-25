@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../dist/iconfont/iconfont.css"/>
+		<link rel="stylesheet" href="../../dist/css/shopcar.css"/>
+	</head>
+	<body>
+		<!--topCon-->
+		<div id="topCon">
+			<div class="select-con">
+				<ul>
+					<li><a href="#">免费网</a></li>
+					<li><a href="#"><i>淘牛品</i></a></li>
+					<li><a href="#">添加收藏</a></li>
+				</ul>
+				<ul>
+					<li><a href="login.html">登录</a></li>
+					<li><a href="register.html">注册</a></li>
+					<li><a href="#"><em class="iconfont icon-liwuhuodong"></em>积分商城</a></li>
+					<li><a href="#"><i>卖家报名</i></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--logoCon-->
+		<div id="logoCon">
+			<div class="logo-l">
+				<h1><img src="../image/taoniu-logo.png"/></h1>
+			</div>
+			<div class="search-c">
+				<form action="">
+					<input class="txt" type="text">
+					<input class="btn" type="submit" value="搜索">
+				</form>
+			</div>
+			<div class="brand-r">
+				<img src="../image/brand-i.jpg"/>
+				<img src="../image/brand-t.jpg"/>
+				<img src="../image/brand-d.jpg"/>
+			</div>
+		</div>
+		<!--navCon-->
+		<div id="navCon">
+			<div class="nav-con">
+				<ul>
+					<li>
+						<h2 class="active">商品分类</h2>		
+						<div class="nav-list">
+							<p><em class="iconfont icon-qunzi"></em><a href="#">女装/连衣裙/短袖</a></p>
+							<p><em class="iconfont icon-yifu"></em><a href="#">男装/短裤</a></p>
+							<p><em class="iconfont icon-xiezi"></em><a href="#">鞋包/凉鞋/箱包</a></p>
+							<p><em class="iconfont icon-icon-test"></em><a href="#">配饰/手表/皮带</a></p>
+							<p><em class="iconfont icon-coffee"></em><a href="#">零食/酒水/杂粮</a></p>
+							<p><em class="iconfont icon-kouhong"></em><a href="#">美妆/面膜/BB霜</a></p>
+							<p><em class="iconfont icon-muyingwanju"></em><a href="#">母婴/童装/玩具</a></p>
+							<p><em class="iconfont icon-shubiao"></em><a href="#">数码/耳机/手机</a></p>
+							<p><em class="iconfont icon-chazuo-"></em><a href="#">居家/百货/家电</a></p>
+							<p><em class="iconfont icon-weibiaoti2fuzhi06"></em><a href="#">文体/办公/户外</a></p>
+						</div>
+					</li>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">9.9包邮</a></li>
+					<li><a href="#">精品折扣</a></li>
+					<li><a href="#">明日预告</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">牛币商城</a></li>
+					<li><a href="#"><em class="iconfont icon-qiandao"></em>签到领牛币</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--shoplist-->
+		<div class="shoplist">
+			<!--
+				'<div class="shop-item clear_fix">'+
+					'<p class="fl"><input type="checkbox" class="ck"/></p>'+
+					'<img class="fl" src="../image/'+ shopinfo.src +'" alt="" />'+
+					'<p class="fl">'+ shopinfo.name +'</p>'+
+					'<span class="fl">'+ shopinfo.price +'元</span>'+
+					'<p class="fl count" '+
+						'data-id="'+ shopinfo.id +'" '+
+						'data-price="'+ shopinfo.price +'" data-count="'+ shopinfo.count +'"'+
+						'data-name="'+ shopinfo.name +'" data-src="'+ shopinfo.src +'"'+
+						'>'+
+						'<span class="updateCount" data-number="1">+</span>'+
+						'<span class="shop-count">'+ shopinfo.count +'</span>'+
+						'<span class="updateCount" data-number="-1">-</span>'+
+					'</p>'+
+					'<em class="fl sumPrice">'+ (shopinfo.count * shopinfo.price) +'元</em>'+
+					'<i class="fl delBtn">删除</i>'+
+				'</div>';
+			-->
+		</div>
+		<div id="sum" class="clear_fix">
+			共多少<span class="count2"></span>件商品，合计<span class="money2"></span>元
+			<label class="fl">
+				<input id="selectAll" type="checkbox"/>全选
+			</label>
+		</div>
+	</body>
+</html>
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/myCookie.js"></script>
+<script>
+	$(function(){
+		//鼠标移动下拉菜单
+		$(".active").mouseenter(function(){
+			$(".nav-list").slideDown(800);
+		})
+		$(".nav-list").mouseleave(function(){
+			$(".nav-list").slideUp(800);
+		})
+		
+		//页面加载取出cookie中的数据
+		var arr = getCookie("shoplist");
+		//console.log(arr)
+		var strCon = "";
+		for( var i = 0 ; i < arr.length ; i++ ){
+			var shopinfo = arr[i];
+			strCon += '<div class="shop-item clear_fix">'+
+						'<p class="fl"><input type="checkbox" class="ck"/></p>'+
+						'<img class="fl" src="../image/'+ shopinfo.src +'" alt="" />'+
+						'<p class="fl">'+ shopinfo.name +'</p>'+
+						'<span class="fl">'+ shopinfo.price +'元</span>'+
+						'<p class="fl count" '+
+							'data-id="'+ shopinfo.id +'" '+
+							'data-price="'+ shopinfo.price +'" data-count="'+ shopinfo.count +'"'+
+							'data-name="'+ shopinfo.name +'" data-src="'+ shopinfo.src +'"'+
+							'>'+
+							'<span class="updateCount" data-number="1">+</span>'+
+							'<span class="shop-count">'+ shopinfo.count +'</span>'+
+							'<span class="updateCount" data-number="-1">-</span>'+
+						'</p>'+
+						'<em class="fl sumPrice">'+ (shopinfo.count * shopinfo.price) +'元</em>'+
+						'<i class="fl delBtn">删除</i>'+
+					'</div>';
+		}
+		$(".shoplist").html( strCon );
+		//console.log(shopinfo.count * shopinfo.price)
+		//全选操作
+		$("#selectAll").click(function(){
+			$(".ck").prop( "checked" , $(this).prop("checked") );
+			jiesuan();
+		})
+		
+		//为所有的复选框添加一个单击事件
+		$(".ck").click(function(){
+			jiesuan();
+		})
+		
+		//封装一个结算的函数
+		function jiesuan(){
+			var count = 0;
+			var money = 0;
+			//结算的是被选中的复选框
+			$(".ck:checked").each( function(){
+				//this   指向dom元素
+				count += Number($(this).parent().parent().find( ".shop-count" ).html());
+				money += parseInt( $(this).parent().parent().find("em").html() );
+			} )
+			$(".count2").html( count );
+			$(".money2").html( money );
+		}
+		
+		//加减操作
+		$(".shoplist").on( "click" , ".updateCount" , function(){
+			//确定要操作的商品
+			var pid = $(this).parent().data("id");
+			//获取自定义属性data-number值
+			var num = $(this).data("number");
+			//获取当前操作的商品的数量
+			var count = $(this).parent().find(".shop-count").html();
+			if( count==1 && num == -1 ){
+				return;
+			}
+			
+			//遍历数组  根据pid编号找到要操作的商品
+			for( var i = 0 ; i < arr.length ; i++ ){
+				if ( pid == arr[i].id ) {
+					//将arr[i]对象的count值 加 num
+					arr[i].count += num;
+					//将数组重新存入到cookie中
+					setCookie( "shoplist" , JSON.stringify( arr ) );
+					
+					//修改界面
+					$(this).parent().find(".shop-count").html( arr[i].count );
+					$(this).parent().parent().find(".sumPrice").html( arr[i].price*arr[i].count + "元" )
+					jiesuan();
+					break;
+				}
+			}
+		} )
+		
+		//删除功能
+		$(".shoplist").on( "click" , ".delBtn" , function(){
+			if( confirm("确定要删除吗？") ){
+				//确定要删除的商品id
+				var pid = $(this).parent().find( ".count" ).data("id");
+				//遍历数组  根据id找到要删除的商品
+				for( var i = 0 ; i <arr.length ; i++ ){
+					if( pid == arr[i].id ){
+						//将arr[i]对象从数组中删除  
+						arr.splice( i , 1 );
+					
+						//将arr数组重新存入到cookie中
+						setCookie( "shoplist" , JSON.stringify( arr ) );
+					
+						//修改页面实现删除
+						$(this).parent().remove();
+						break;
+					}
+				}
+			}
+		})
+	})
+</script>

@@ -1,0 +1,214 @@
+@import 'public';
+
+body {
+  position: relative;
+}
+
+//topCon
+#topCon{
+    width: 100%;
+    background: #f3f3f3;
+}
+.select-con{
+    width: 1200px;
+    height: 33px;
+    margin: 0 auto;
+    ul{
+        &:nth-child(1) {
+            loat: left;
+        }
+        &:nth-child(2) {
+            float: right;
+            li {
+                border-left: 1px dashed #ccc;
+            }
+        }
+        li {
+            float: left;
+            a{
+                height: 33px;
+                display: block;
+                font-size: 12px;
+                color: #666;
+                line-height: 33px;
+                padding: 0 15px;
+                i {
+                  color: #ff0000;
+                }
+            }
+        }
+    }
+}
+
+//logoCon
+#logoCon {
+    width: 1200px;
+    height: 51px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.logo-l {
+    h1 {
+       float: left;
+    }
+}
+.search-c {
+    form {
+        float: left;
+        height: 38px;
+        margin-left: 102px;
+        .txt {
+            float: left;
+            width: 318px;
+            height: 34px;
+            border: 2px solid #e6212a;
+            border-right: 0;
+        }
+        .btn {
+            float: left;
+            width: 100px;
+            height: 38px;
+            background: #e6212a;
+            color: #fff;
+            border: 0;
+            font-size: 17px;
+        }
+    }
+    .words {
+        float: left;
+        line-height: 11px;
+        a {
+            font-size: 11px;
+            color: #999;
+            padding: 0 5px;
+            border-right: 1px solid #999;
+        }
+    }
+}
+.brand-r {
+    float: right;
+    img {
+        float: left;
+        margin-left: 16px;
+    }
+}
+
+//navCon
+#navCon {
+    width: 100%;
+    background: #443e56;
+    height: 39px;
+    .nav-list {
+        p {
+            a {
+                display: block;
+                font-size: 14px;
+                color: #2b2b4e;
+                padding-top: 0;
+                height: 14px;
+                line-height: 14px;
+            }
+        }
+    }
+}
+.nav-con {
+    width: 1200px;
+    height: 39px;
+    margin: 0 auto;
+    ul {
+        li {
+            float: left;
+            font-size: 14px;
+            color: #fff;
+            a {
+                display: block;
+                color: #fff;
+                font-size: 14px;
+                height: 20px;
+                line-height: 20px;
+                margin-left: 25px;
+                padding-top: 12px;
+            }
+        }
+        &:nth-child(1) {
+            float: left;
+            li {
+                &:nth-child(1) {
+                    h2 {
+                        width: 200px;
+                        height: 27px;
+                        text-align: center;
+                        background: #332d43;
+                        padding-top: 12px;
+                    }
+                }
+            } 
+        }
+        &:nth-child(2) {
+            float: right;
+        }
+    }
+}
+.nav-list {
+    width: 200px;
+    height: 370px;
+    border: 1px dashed #ccc;
+    position: absolute;
+    z-index:20;
+    display:none;
+    background:#fff;
+    p {
+        padding: 11px 0 11px 20px;
+        em {
+            float: left;
+            color: #7d7987;
+        }
+    }
+}
+//shoplist
+.shoplist{
+    width: 1200px;
+    margin:0 auto
+}
+.shop-item{
+    width: 100%;
+    /*border: 1px solid #d1d1d1;*/
+    margin: 20px auto;
+    text-align: center;
+}
+.fl{
+    float: left;
+}
+.shop-item input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+.shop-item .fl{
+    padding: 10px;
+    width: 129px;
+    display: block;
+    height: 120px;
+    border: 1px solid #d1d1d1;
+    margin-left: -1px;
+    font-size:14px;
+}
+.shop-item .fl:after{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+.shop-item .count > span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #d1d1d1;
+    line-height: 30px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#sum{
+    width: 1050px;
+    margin: 20px auto 100px;
+    text-align: right;
+}
